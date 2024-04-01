@@ -1,0 +1,1 @@
+# sbox-quick-switcher
