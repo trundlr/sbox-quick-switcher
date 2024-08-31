@@ -27,6 +27,6 @@ public class SearchBar : LineEdit
 
 	protected override void OnBlur( FocusChangeReason _ )
 	{
-		SearchBlurred.Invoke();
+		SearchBlurred?.Invoke();
 	}
 }

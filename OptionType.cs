@@ -29,12 +29,12 @@ public static class OptionTypeExtension
 	}
 }
 
-public record class Option( OptionType Type, string Name, string ActionText, Pixmap Icon );
+public record Option( OptionType Type, string Name, string ActionText, Pixmap Icon );
 
-public record class AssetOption( OptionType Type, string Name, string ActionText, Pixmap Icon, Asset asset )
+public record AssetOption( OptionType Type, string Name, string ActionText, Pixmap Icon, Asset asset )
 	: Option( Type, Name, ActionText, Icon );
 
-public record class ActionOption(
+public record ActionOption(
 	OptionType Type,
 	string Name,
 	string ActionText,
@@ -68,7 +68,7 @@ public record class ActionOption(
 
 					var fd = new FileDialog( null );
 					fd.Title = $"Create {entry.Name}";
-					fd.Directory = Project.Current.Path;
+					fd.Directory = Project.Current.RootDirectory.FullName;
 					fd.DefaultSuffix = $".{extension}";
 					fd.SelectFile( $"untitled.{extension}" );
 					fd.SetFindFile();
@@ -103,7 +103,7 @@ public record class ActionOption(
 				{
 					var fd = new FileDialog( null );
 					fd.Title = $"Create {gameResource.Name}";
-					fd.Directory = Project.Current.Path;
+					fd.Directory = Project.Current.RootDirectory.FullName;
 					fd.DefaultSuffix = $".{gameResource.Extension}";
 					fd.SelectFile( $"untitled.{gameResource.Extension}" );
 					fd.SetFindFile();
